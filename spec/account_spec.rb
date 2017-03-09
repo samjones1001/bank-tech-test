@@ -11,4 +11,15 @@ describe Account do
   it 'begins with a balance of 0' do
     expect(account.balance).to eq 0
   end
+
+  it 'can report current balance' do
+    account.deposit(100)
+    expect(account.balance).to eq(100)
+  end
+
+  describe '#deposit' do
+    it 'increases the balance of the account by the given amount'do
+      expect { account.deposit(100) }.to change{account.balance}.by(100)
+    end
+  end
 end
