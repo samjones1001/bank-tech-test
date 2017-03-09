@@ -6,13 +6,12 @@ describe Account do
   let(:transaction) { double(:transaction) }
   subject(:account) { described_class.new(current_transaction) }
 
-
-  it 'can create a new account' do
-    expect{ Account.new }.not_to raise_error
-  end
-
   it 'begins with a balance of 0' do
     expect(account.balance).to eq(0)
+  end
+
+  it 'begins with an empty statement' do
+    expect(account.statement.transactions).to be_empty
   end
 
   it 'can report current balance' do
