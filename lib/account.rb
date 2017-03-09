@@ -10,12 +10,12 @@ class Account
 
   def deposit(amount)
     update_balance(amount)
-    save_transaction(@current_transaction.new(amount))
+    save_transaction(@current_transaction.new(amount, @balance))
   end
 
   def withdraw(amount)
     update_balance(-amount)
-    save_transaction(@current_transaction.new(amount))
+    save_transaction(@current_transaction.new(amount, @balance))
   end
 
   private
