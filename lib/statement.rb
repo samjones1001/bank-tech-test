@@ -10,4 +10,8 @@ class Statement
     @transactions << transaction
   end
 
+  def pretty_print
+    "|date       || credit || debit   || balance\n"
+  end
+
 end
