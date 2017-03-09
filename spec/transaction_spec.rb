@@ -14,6 +14,6 @@ describe Transaction do
 
   it 'knows the date it was created' do
     transaction = Transaction.new(100)
-    expect(transaction.date).to eq(DateTime.new.strftime("%d/%m/%Y"))
+    expect(transaction.date).to eq(Time.now.strftime("%d/%m/%Y"))
   end
 end

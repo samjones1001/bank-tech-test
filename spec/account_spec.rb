@@ -1,8 +1,11 @@
 require_relative '../lib/account'
-
+#
 describe Account do
 
-  let(:account)   { described_class.new }
+  let(:current_transaction) { double(:current_transaction, new: transaction) }
+  let(:transaction) { double(:transaction) }
+  subject(:account) { described_class.new(current_transaction) }
+
 
   it 'can create a new account' do
     expect{ Account.new }.not_to raise_error
@@ -21,6 +24,12 @@ describe Account do
     it 'increases the balance of the account by the given amount'do
       expect { account.deposit(100) }.to change{account.balance}.by(100)
     end
+
+    it 'creates a new transaction with a positive amount' do
+        account.deposit(100)
+        expect(current_transaction).to have_received(:new)
+    end
+
   end
 
   describe '#withdraw' do
