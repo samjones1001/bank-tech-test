@@ -22,4 +22,10 @@ describe Account do
       expect { account.deposit(100) }.to change{account.balance}.by(100)
     end
   end
+
+  describe '#withdraw' do
+    it 'decreases the balance of the account by the given ammount' do
+      expect { account.withdraw(100) }.to change{account.balance}.by(-100)
+    end
+  end
 end
