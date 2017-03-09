@@ -13,6 +13,7 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+    @current_transaction.new(-amount)
   end
 
 

@@ -12,7 +12,7 @@ describe Account do
   end
 
   it 'begins with a balance of 0' do
-    expect(account.balance).to eq 0
+    expect(account.balance).to eq(0)
   end
 
   it 'can report current balance' do
@@ -25,7 +25,7 @@ describe Account do
       expect { account.deposit(100) }.to change{account.balance}.by(100)
     end
 
-    it 'creates a new transaction with a positive amount' do
+    it 'creates a new transaction' do
         account.deposit(100)
         expect(current_transaction).to have_received(:new)
     end
@@ -35,6 +35,11 @@ describe Account do
   describe '#withdraw' do
     it 'decreases the balance of the account by the given ammount' do
       expect { account.withdraw(100) }.to change{account.balance}.by(-100)
+    end
+
+    it 'creates a new transaction' do
+        account.withdraw(100)
+        expect(current_transaction).to have_received(:new)
     end
   end
 end
