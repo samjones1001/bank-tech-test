@@ -15,8 +15,10 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
-    @current_transaction.new(-amount)
+    save_transaction(@current_transaction.new(amount))
   end
+
+  private
 
   def save_transaction(transaction)
     @statement.add_to_statement(transaction)
