@@ -30,6 +30,9 @@ describe Account do
         expect(current_transaction).to have_received(:new)
     end
 
+    it 'adds a transaction to the statement' do
+        expect{ account.deposit(100) }.to change{ account.statement.transactions.size }.by(1)
+    end
   end
 
   describe '#withdraw' do
