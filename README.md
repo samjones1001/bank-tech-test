@@ -27,10 +27,7 @@ date       || credit || debit   || balance
 ```
 
 ## Outline
-
-
-
-
+My solution uses three classes - Account, Transaction, and Statement - and makes use of dependency injection to reduce coupling.  Overall, I am happy with the simplicity of my codebase - I think the classes and methods are well named and perform a clear function.  Given more time, I would have liked to continue working on the presentation of the final output of the Statment class, as this is still not quite right.
 
 ## Usage Instructions
 * clone the repo and run bundle
