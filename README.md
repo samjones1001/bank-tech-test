@@ -47,4 +47,9 @@ $ rspec
 * usage 
 ```shell
 $ irb
+2.3.0 :001 > require './lib/account'
+2.3.0 :002 > account = Account.new
+2.3.0 :003 > account.deposit(1000)
+2.3.0 :004 > account.withdraw(250)
+2.3.0 :005 > puts account.statement.pretty_print
 ```
