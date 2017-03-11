@@ -2,9 +2,9 @@ require_relative '../lib/account'
 #
 describe Account do
 
-  let(:current_transaction) { double(:current_transaction, new: transaction) }
-  let(:transaction) { double(:transaction) }
-  subject(:account) { described_class.new(current_transaction) }
+  let(:current_transaction)   { double(:current_transaction, new: transaction) }
+  let(:transaction)           { double(:transaction) }
+  subject(:account)           { described_class.new(current_transaction) }
 
   it 'begins with a balance of 0' do
     expect(account.balance).to eq(0)

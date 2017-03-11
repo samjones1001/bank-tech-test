@@ -1,6 +1,6 @@
 class Account
 
-  attr_reader :balance, :statement
+  attr_reader :balance, :statement, :current_transaction
 
   def initialize(current_transaction = Transaction, statement = Statement.new)
     @current_transaction = current_transaction
@@ -10,18 +10,18 @@ class Account
 
   def deposit(amount)
     update_balance(amount)
-    save_transaction(@current_transaction.new(amount, @balance))
+    save_transaction(current_transaction.new(amount, balance))
   end
 
   def withdraw(amount)
     update_balance(-amount)
-    save_transaction(@current_transaction.new(amount, @balance))
+    save_transaction(current_transaction.new(amount, balance))
   end
 
   private
 
   def save_transaction(transaction)
-    @statement.add_to_statement(transaction)
+    statement.add_to_statement(transaction)
   end
 
   def update_balance(amount)

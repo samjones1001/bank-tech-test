@@ -19,9 +19,9 @@ describe Statement do
     end
 
     it 'can add multiple transactions' do
-      statement.add_to_statement(transaction)
-      statement.add_to_statement(transaction)
-      statement.add_to_statement(transaction)
+      3.times do
+        statement.add_to_statement(transaction)
+      end
       expect(statement.transactions.length).to be(3)
     end
   end
